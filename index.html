@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilo y Belleza - Peluquería Profesional</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Pro:ital,wght@0,200;0,400;1,200;1,400&family=Montserrat:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-primary: #c5a47e;
+            --color-secondary: #3d3d3d;
+            --color-accent: #d4af37;
+            --color-dark: #1a1a1a;
+            --color-light: #f8f9fa;
+            --color-white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #fefefe;
+            color: #333;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        #particles-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            background: rgba(197, 164, 126, 0.3);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 18s infinite ease-in-out;
+        }
+        
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: var(--transition);
+            animation: pulse 4s infinite ease-in-out, fadeIn 1.5s ease-out;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--color-primary);
+        }
+        .logo-img:hover {
+            transform: rotate(10deg) scale(1.1);
+            box-shadow: 0 0 25px var(--color-accent);
+            animation: none;
+        }
+        
+        #header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(12px);
+        }
+        #header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            color: var(--color-dark);
+            margin: 0;
+        }
+        .tagline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.2rem;
+            color: var(--color-primary);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        .hero-content h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn-primary-custom {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 1rem;
+            text-decoration: none;
+            color: white;
+            background: var(--color-primary);
+            border: none;
+            border-radius: 30px;
+            margin: 10px;
+            transition: var(--transition);
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background: #b8946a;
+            color: white;
+        }
+        .btn-secondary-custom {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 1rem;
+            text-decoration: none;
+            color: var(--color-dark);
+            background: transparent;
+            border: 2px solid var(--color-primary);
+            border-radius: 30px;
+            margin: 10px;
+            transition: var(--transition);
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-secondary-custom:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+        
+        .section { padding: 80px 0; }
+        .section-light { background: var(--color-light); }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+        .section-heading:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--color-primary);
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-img { height: 200px; width: 100%; object-fit: cover; }
+        .service-content { padding: 25px; }
+        .service-price { font-weight: 600; color: var(--color-primary); font-size: 1.2rem; }
+        
+        .carousel-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 500px;
+        }
+        .carousel-slide { min-width: 100%; position: relative; }
+        .carousel-slide img { width: 100%; height: 100%; object-fit: cover; }
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 5;
+        }
+        .carousel-control {
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin: 0 15px;
+        }
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 5;
+        }
+        .indicator {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+        }
+        .indicator.active { background: white; transform: scale(1.2); }
+        
+        .contact-icon {
+            background: var(--color-primary);
+            color: white;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .footer { background: var(--color-dark); color: white; padding: 60px 0 30px; }
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: var(--transition);
+        }
+        .social-link:hover { background: var(--color-primary); transform: translateY(-3px); }
+        
+        /* Chat Bot */
+        .chat-bot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .chat-bot-button {
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+        .chat-bot-button:hover { transform: scale(1.1); }
+        .chat-bot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 400px;
+            height: 550px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+        }
+        .chat-bot-window.open { display: flex; }
+        .chat-header {
+            background: var(--color-primary);
+            color: white;
+            padding: 15px;
+            border-radius: 15px 15px 0 0;
+            font-weight: 600;
+        }
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        .chat-message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .chat-message.bot { background: #f1f1f1; }
+        .chat-message.user {
+            background: var(--color-primary);
+            color: white;
+            margin-left: auto;
+        }
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h2 { font-size: 2rem; }
+            .carousel-slides { height: 350px; }
+            .chat-bot-window { width: 100%; height: 450px; right: 0; bottom: 70px; position: fixed; }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-container"></div>
+
+    <header id="header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <img class="logo-img" src="https://i.ibb.co/LDG7Gf2d/fotor-ai-2025020222510.jpg" alt="Estilo y Belleza">
+                    <div class="ms-3">
+                        <h1 class="mb-0">Estilo y Belleza</h1>
+                        <div class="tagline">Peluquería & Estilismo Profesional</div>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-primary-custom d-none d-md-inline-block" onclick="openNav()">
+                        <i class="fas fa-bars me-2"></i>Menú
+                    </button>
+                    <button class="btn btn-primary-custom d-md-none" onclick="openNav()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="sideMenu" style="display:none; position:fixed; top:0; right:0; width:300px; height:100%; background:white; z-index:1000; padding:20px; box-shadow:-5px 0 20px rgba(0,0,0,0.2);">
+        <button onclick="closeNav()" class="btn-close float-end"></button>
+        <h5 class="mt-4">Estilo y Belleza</h5>
+        <ul class="navbar-nav mt-3">
+            <li class="nav-item"><a class="nav-link" href="#inicio" onclick="closeNav()">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#servicios" onclick="closeNav()">Servicios</a></li>
+            <li class="nav-item"><a class="nav-link" href="#galeria" onclick="closeNav()">Galería</a></li>
+            <li class="nav-item"><a class="nav-link" href="#testimonios" onclick="closeNav()">Testimonios</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contacto" onclick="closeNav()">Contacto</a></li>
+        </ul>
+        <div class="mt-4">
+            <p><i class="fas fa-phone me-2"></i>+53 5620-31-89</p>
+            <p><i class="fas fa-map-marker-alt me-2"></i>Centro Habana, Calle Manrrique #563</p>
+            <p><i class="fas fa-clock me-2"></i>Lun-Vie: 9:00-19:00 | Sáb: 9:00-16:00</p>
+        </div>
+    </div>
+
+    <div id="menuOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;" onclick="closeNav()"></div>
+
+    <section class="hero-section" id="inicio">
+        <div class="hero-content">
+            <h2>Transforma tu look, realza tu belleza</h2>
+            <p>En Estilo y Belleza nos especializamos en crear looks únicos que reflejen tu personalidad y realcen tu belleza natural.</p>
+            <button class="btn btn-primary-custom" onclick="openChat()">Reserva tu cita con Asistente</button>
+            <a href="#servicios" class="btn btn-secondary-custom">Ver servicios</a>
+        </div>
+    </section>
+
+    <section class="section section-light" id="servicios">
+        <div class="container">
+            <h2 class="section-heading">Nuestros Servicios</h2>
+            <div class="row" id="services-container"></div>
+        </div>
+    </section>
+
+    <section class="section" id="galeria">
+        <div class="container">
+            <h2 class="section-heading">Nuestros Trabajos</h2>
+            <div class="carousel-container" id="carousel-container">
+                <div class="carousel-slides" id="carousel-slides"></div>
+                <div class="carousel-controls">
+                    <button class="carousel-control prev">&#10094;</button>
+                    <button class="carousel-control next">&#10095;</button>
+                </div>
+                <div class="carousel-indicators" id="carousel-indicators"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-light" id="testimonios">
+        <div class="container">
+            <h2 class="section-heading">Lo que dicen nuestros clientes</h2>
+            <div class="row">
+                <div class="col-md-4"><div class="bg-white p-4 rounded shadow-sm"><p>"Estoy encantada con mi nuevo look. ¡Recomendado 100%!"</p><strong>Irma Isabela</strong><div class="text-warning">★★★★★</div></div></div>
+                <div class="col-md-4"><div class="bg-white p-4 rounded shadow-sm"><p>"Siempre me asesoran profesionalmente. Resultados impecables."</p><strong>Mayda García</strong><div class="text-warning">★★★★★</div></div></div>
+                <div class="col-md-4"><div class="bg-white p-4 rounded shadow-sm"><p>"El mejor salón de belleza que he visitado."</p><strong>Yolanda Sanchez</strong><div class="text-warning">★★★★★</div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contacto">
+        <div class="container">
+            <h2 class="section-heading">Contacto</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="d-flex mb-4"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><h4>Teléfono</h4><p>+53 5620-31-89</p></div></div>
+                    <div class="d-flex mb-4"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Dirección</h4><p>Centro Habana, Calle Manrrique #563</p></div></div>
+                    <div class="d-flex mb-4"><div class="contact-icon"><i class="fas fa-clock"></i></div><div><h4>Horario</h4><p>Lun-Vie: 9:00-19:00 | Sáb: 9:00-16:00</p></div></div>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-primary-custom w-100" onclick="openChat()">
+                        <i class="fas fa-robot me-2"></i>Reservar con Asistente Virtual
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"><h4 class="text-primary">Estilo y Belleza</h4><p>Transformamos tu look para realzar tu belleza natural.</p></div>
+                <div class="col-md-4"><h5>Contacto</h5><p><i class="fas fa-map-marker-alt me-2"></i>Centro Habana, Calle Manrrique #563</p><p><i class="fas fa-phone me-2"></i>+53 5620-31-89</p></div>
+                <div class="col-md-4"><h5>Enlaces</h5><ul class="list-unstyled"><li><a href="#inicio" class="text-white-50">Inicio</a></li><li><a href="#servicios" class="text-white-50">Servicios</a></li></ul></div>
+            </div>
+            <div class="text-center pt-4 border-top border-secondary mt-4"><p class="text-white-50">&copy; 2025 Estilo y Belleza - FG-Studio</p></div>
+        </div>
+    </footer>
+
+    <div class="chat-bot-container">
+        <div class="chat-bot-window" id="chatWindow">
+            <div class="chat-header">💇‍♀️ Asistente de Reservas - Estilo y Belleza</div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" class="form-control" id="chatInput" placeholder="Escribe tu mensaje...">
+                <button class="btn btn-primary-custom" id="chatSend"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="chat-bot-button" id="chatToggle"><i class="fas fa-robot"></i></button>
+    </div>
+
+    <script>
+        // API URL del servidor
+        const API_URL = window.location.origin;
+        
+        // Servicios
+        const servicesList = [
+            { name: 'Peinado con moñitos', price: 25, img: 'https://a.top4top.io/p_3577x7oka5.jpg', desc: 'Peinado completo, Moñitos trenzas, entre otras decoraciones.' },
+            { name: 'Coloración', price: 50, img: 'https://images.unsplash.com/photo-1552902865-b72f031c5c3f?w=500&q=80', desc: 'Técnicas avanzadas de coloración.' },
+            { name: 'Tratamientos Capilares', price: 35, img: 'https://images.unsplash.com/photo-1593705114312-a0ee03a3f7c2?w=500&q=80', desc: 'Restaura la salud y vitalidad de tu cabello.' },
+            { name: 'Peinados para Eventos', price: 40, img: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=500&q=80', desc: 'Crea el look perfecto para tu ocasión especial.' },
+            { name: 'Extensiones Capilares', price: 120, img: 'https://g.top4top.io/p_3577h407a0.jpg', desc: 'Añade longitud y volumen.' },
+            { name: 'Maquillaje Profesional', price: 45, img: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=500&q=80', desc: 'Resalta tu belleza natural.' }
+        ];
+        
+        const TRANSPORT_COST = 5;
+        let chatState = { step: 'initial', clientName: '', selectedService: null, selectedDate: null, selectedTime: null, deliveryType: null, phoneNumber: '' };
+
+        function openNav() {
+            document.getElementById('sideMenu').style.display = 'block';
+            document.getElementById('menuOverlay').style.display = 'block';
+        }
+        
+        function closeNav() {
+            document.getElementById('sideMenu').style.display = 'none';
+            document.getElementById('menuOverlay').style.display = 'none';
+        }
+
+        function openChat() {
+            document.getElementById('chatWindow').classList.add('open');
+            document.getElementById('chatToggle').style.display = 'none';
+            if (document.getElementById('chatMessages').children.length === 0) {
+                resetChat();
+                addBotMessage('¡Hola! Soy el asistente virtual de <b>Estilo y Belleza</b>. 😊<br><br>Para comenzar, ¿podrías decirme tu <b>nombre completo</b>?');
+            }
+        }
+
+        function loadServices() {
+            document.getElementById('services-container').innerHTML = servicesList.map(s => `
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <img src="${s.img}" alt="${s.name}" class="service-img">
+                        <div class="service-content">
+                            <h3 class="service-title">${s.name}</h3>
+                            <p class="service-description">${s.desc}</p>
+                            <div class="service-price">Desde $${s.price}</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function loadCarousel() {
+            try {
+                const res = await fetch(`${API_URL}/api/carousel`);
+                const images = await res.json();
+                const slider = document.getElementById('carousel-slides');
+                const indicators = document.getElementById('carousel-indicators');
+                
+                if (images.length === 0) {
+                    slider.innerHTML = '<div class="carousel-slide d-flex align-items-center justify-content-center"><p>Galería próximamente</p></div>';
+                    return;
+                }
+                
+                slider.innerHTML = images.map(img => `
+                    <div class="carousel-slide">
+                        <img src="${img.image}" alt="${img.name}">
+                        <div class="slide-content"><h3>${img.name}</h3><p>${img.description || ''}</p></div>
+                    </div>
+                `).join('');
+                
+                indicators.innerHTML = images.map((_, i) => `<div class="indicator ${i === 0 ? 'active' : ''}" data-index="${i}"></div>`).join('');
+                
+                let currentSlide = 0;
+                document.querySelector('.carousel-control.prev').onclick = () => {
+                    currentSlide = (currentSlide - 1 + images.length) % images.length;
+                    updateCarousel(currentSlide);
+                };
+                document.querySelector('.carousel-control.next').onclick = () => {
+                    currentSlide = (currentSlide + 1) % images.length;
+                    updateCarousel(currentSlide);
+                };
+                document.querySelectorAll('.indicator').forEach(ind => {
+                    ind.onclick = () => updateCarousel(parseInt(ind.dataset.index));
+                });
+                function updateCarousel(index) {
+                    currentSlide = index;
+                    document.getElementById('carousel-slides').style.transform = `translateX(-${index * 100}%)`;
+                    document.querySelectorAll('.indicator').forEach((ind, i) => ind.classList.toggle('active', i === index));
+                }
+                if (images.length > 1) setInterval(() => {
+                    currentSlide = (currentSlide + 1) % images.length;
+                    updateCarousel(currentSlide);
+                }, 5000);
+            } catch(e) {
+                console.error('Error cargando carrusel:', e);
+            }
+        }
+
+        function addBotMessage(text) {
+            const div = document.createElement('div');
+            div.className = 'chat-message bot';
+            div.innerHTML = text;
+            document.getElementById('chatMessages').appendChild(div);
+            document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+        }
+
+        function addUserMessage(text) {
+            const div = document.createElement('div');
+            div.className = 'chat-message user';
+            div.textContent = text;
+            document.getElementById('chatMessages').appendChild(div);
+            document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+        }
+
+        function resetChat() {
+            chatState = { step: 'initial', clientName: '', selectedService: null, selectedDate: null, selectedTime: null, deliveryType: null, phoneNumber: '' };
+            document.getElementById('chatMessages').innerHTML = '';
+        }
+
+        document.getElementById('chatSend').addEventListener('click', () => {
+            const msg = document.getElementById('chatInput').value.trim();
+            if (!msg) return;
+            addUserMessage(msg);
+            document.getElementById('chatInput').value = '';
+            processMessage(msg);
+        });
+
+        document.getElementById('chatInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') document.getElementById('chatSend').click();
+        });
+
+        document.getElementById('chatToggle').addEventListener('click', openChat);
+
+        function processMessage(msg) {
+            setTimeout(() => {
+                switch (chatState.step) {
+                    case 'initial':
+                        chatState.clientName = msg;
+                        chatState.step = 'selectService';
+                        let serviceList = 'Tenemos los siguientes servicios:<br>';
+                        servicesList.forEach((s, i) => serviceList += `<b>${i + 1}.</b> ${s.name} - <b>$ ${s.price}</b><br>`);
+                        serviceList += '<br>Responde con el <b>número</b> del servicio que deseas.';
+                        addBotMessage(`¡Mucho gusto, <b>${chatState.clientName}</b>! ✨<br><br>${serviceList}`);
+                        break;
+                    case 'selectService':
+                        const idx = parseInt(msg) - 1;
+                        if (idx >= 0 && idx < servicesList.length) {
+                            chatState.selectedService = servicesList[idx];
+                            chatState.step = 'confirmPrice';
+                            addBotMessage(`Seleccionaste: <b>${chatState.selectedService.name}</b><br>Precio: <b>$ ${chatState.selectedService.price}</b><br><br>¿Deseas continuar? (responde <b>sí</b> o <b>no</b>)`);
+                        } else {
+                            addBotMessage('Por favor, selecciona un número válido.');
+                        }
+                        break;
+                    case 'confirmPrice':
+                        if (msg.toLowerCase().includes('si')) {
+                            chatState.step = 'selectDate';
+                            addBotMessage('Perfecto. Necesito una <b>fecha</b> para tu turno (formato <b>DD/MM</b>). Ejemplo: 15/06');
+                        } else {
+                            addBotMessage('Entendido. Si cambias de opinión, aquí estoy. ¡Que tengas un lindo día! 😊');
+                            resetChat();
+                        }
+                        break;
+                    case 'selectDate':
+                        const parts = msg.split('/');
+                        if (parts.length === 2) {
+                            const day = parseInt(parts[0]), month = parseInt(parts[1]);
+                            const now = new Date();
+                            const selectedDate = new Date(now.getFullYear(), month - 1, day);
+                            if (day >= 1 && day <= 31 && month >= 1 && month <= 12 && selectedDate > now) {
+                                chatState.selectedDate = `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${now.getFullYear()}`;
+                                chatState.step = 'selectTime';
+                                addBotMessage(`Fecha: <b>${chatState.selectedDate}</b><br><br>¿A qué hora? (9:00-19:00 lun-vie, 9:00-16:00 sáb). Formato <b>HH:MM</b> (ej: 14:30)`);
+                            } else {
+                                addBotMessage('La fecha debe ser futura y válida. Intenta de nuevo (DD/MM).');
+                            }
+                        } else {
+                            addBotMessage('Formato inválido. Usa DD/MM (ej: 15/06).');
+                        }
+                        break;
+                    case 'selectTime':
+                        chatState.selectedTime = msg;
+                        chatState.step = 'selectDelivery';
+                        addBotMessage(`Hora: <b>${chatState.selectedTime}</b><br><br>¿Cómo prefieres el servicio?<br><b>1.</b> En el local<br><b>2.</b> A domicilio (+$ ${TRANSPORT_COST})<br><br>Responde <b>1</b> o <b>2</b>.`);
+                        break;
+                    case 'selectDelivery':
+                        if (msg === '1') {
+                            chatState.deliveryType = 'local';
+                        } else if (msg === '2') {
+                            chatState.deliveryType = 'domicilio';
+                        } else {
+                            addBotMessage('Responde <b>1</b> para local o <b>2</b> para domicilio.');
+                            break;
+                        }
+                        chatState.step = 'phoneNumber';
+                        const total = chatState.selectedService.price + (chatState.deliveryType === 'domicilio' ? TRANSPORT_COST : 0);
+                        addBotMessage(`${chatState.deliveryType === 'domicilio' ? 'Servicio a domicilio (+$' + TRANSPORT_COST + ').' : 'Servicio en el local.'}<br>Total: <b>$ ${total}</b><br><br>Por último, necesito tu <b>número de teléfono</b>.`);
+                        break;
+                    case 'phoneNumber':
+                        chatState.phoneNumber = msg;
+                        const totalPrice = chatState.selectedService.price + (chatState.deliveryType === 'domicilio' ? TRANSPORT_COST : 0);
+                        
+                        // Guardar turno en el servidor
+                        const appointment = {
+                            name: chatState.clientName,
+                            phone: chatState.phoneNumber,
+                            service: chatState.selectedService.name,
+                            price: chatState.selectedService.price,
+                            date: chatState.selectedDate,
+                            time: chatState.selectedTime,
+                            delivery: chatState.deliveryType,
+                            total: totalPrice
+                        };
+                        
+                        fetch(`${API_URL}/api/appointments`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(appointment)
+                        }).catch(e => console.error('Error guardando turno:', e));
+                        
+                        addBotMessage(`✅ <b>¡Reserva confirmada!</b> ✅<br><br>
+                            📋 <b>Resumen:</b><br>
+                            👤 ${chatState.clientName}<br>
+                            💇 ${chatState.selectedService.name}<br>
+                            💵 Total: <b>$ ${totalPrice}</b><br>
+                            📅 ${chatState.selectedDate}<br>
+                            ⏰ ${chatState.selectedTime}<br>
+                            📞 ${chatState.phoneNumber}<br><br>
+                            ¡Gracias por elegirnos! 💖`);
+                        
+                        chatState.step = 'completed';
+                        setTimeout(() => {
+                            resetChat();
+                            document.getElementById('chatWindow').classList.remove('open');
+                            document.getElementById('chatToggle').style.display = 'block';
+                        }, 5000);
+                        break;
+                    case 'completed':
+                        addBotMessage('¿Deseas otra reserva? Responde <b>sí</b> para comenzar.');
+                        if (msg.toLowerCase().includes('si')) {
+                            resetChat();
+                            addBotMessage('¡Perfecto! ¿Cuál es tu nombre completo?');
+                        }
+                        break;
+                }
+            }, 600);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Partículas
+            for (let i = 0; i < 20; i++) {
+                const p = document.createElement('div');
+                p.classList.add('particle');
+                p.style.cssText = `width:${Math.random()*15+5}px;height:${Math.random()*15+5}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*15}s`;
+                document.getElementById('particles-container').appendChild(p);
+            }
+            loadServices();
+            loadCarousel();
+            
+            // Navegación suave
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
